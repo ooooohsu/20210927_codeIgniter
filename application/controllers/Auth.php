@@ -48,7 +48,11 @@ class Auth extends CI_Controller {
 
 		$data["created_at"] = date();
 
-		$this->Auth_model->
+		var_dump($data);
+
+		$result =  $this->Auth_model->insert_member($data);
+
+		var_dump($result);
 
 	}
 }

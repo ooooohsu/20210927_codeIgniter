@@ -16,6 +16,12 @@ class Auth_model extends CI_Model
 	}
 
 	function insert_member($data){
-		$sql = "INSERT (seq,) INTO "
+		$sql = "INSERT INTO member(seq,email,password,created_at) VALUES (?, ?, ?, ?)";
+		$this->db->query($sql,array(ordered_uuid(uuid()), $data["email"],  $data["password"], $data["created_at"]));
+		if(	$this->db->affected_rows() > 0){
+			return true;
+		}else{
+			return false;
+		}
 	}
 }
